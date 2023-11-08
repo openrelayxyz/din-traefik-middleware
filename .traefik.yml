@@ -1,5 +1,5 @@
 displayName: DIN RPC Middleware
-type: provider
+type: middleware
 iconPath: .assets/icon.png
 
 import: github.com/openrelayxyz/din-traefik-middleware
