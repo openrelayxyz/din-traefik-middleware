@@ -1,0 +1,10 @@
+displayName: DIN RPC Middleware
+type: provider
+iconPath: .assets/icon.png
+
+import: github.com/openrelayxyz/din-plugins/middleware
+
+summary: 'DIN RPC Middleware Plugin'
+
+testData:
+  pollInterval: 5s

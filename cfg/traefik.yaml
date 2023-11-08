@@ -1,0 +1,58 @@
+## STATIC CONFIGURATION
+log:
+  level: DEBUG
+
+api:
+  insecure: true
+  dashboard: true
+
+entryPoints:
+  web:
+    address: ":8000"
+
+
+
+providers:
+  # file:
+  #   filename: "services.yaml"
+  plugin:
+    rpcrouter:
+      networks:
+        etc:
+          providers:
+            - url: https://$API_KEY.etc.rpc.rivet.cloud/
+              wsurl: wss://$API_KEY.etc.ws.rivet.cloud/
+              methods: 
+                - Name: "eth_chainId"
+                - Name: "eth_blockNumber"
+                - Name: "eth_getBlockByNumber"
+                - Name: "web3_clientVersion"
+          methods:
+            - Name: eth_chainId
+            - Name: eth_blockNumber
+            - Name: eth_getBlockByNumber
+            - Name: web3_clientVersion
+        eth: # TODO
+          providers:
+            - url: https://$API_KEY.eth.rpc.rivet.cloud/
+              wsurl: wss://$API_KEY.eth.ws.rivet.cloud/
+              methods: 
+                - Name: "eth_chainId"
+                - Name: "eth_blockNumber"
+                - Name: "eth_getBlockByNumber"
+                - Name: "web3_clientVersion"
+          methods:
+            - Name: eth_chainId
+            - Name: eth_blockNumber
+            - Name: eth_getBlockByNumber
+            - Name: web3_clientVersion
+
+
+experimental:
+  plugins:
+    rpcloopback:
+      moduleName: github.com/openrelayxyz/din-plugins/middleware
+      version: v0.1.0
+    rpcrouter:
+      moduleName: github.com/openrelayxyz/din-plugins/provider  
+      version: v0.1.0
