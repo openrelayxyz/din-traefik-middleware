@@ -22,6 +22,7 @@ type Config struct {
 
 // CreateConfig creates the default plugin configuration.
 func CreateConfig() *Config {
+	log.Printf("Creating din middleware config")
 	return &Config{
 		// Providers: make(map[string]string),
 		// Methods: make(map[string][]string),
@@ -49,7 +50,7 @@ type Demo struct {
 
 // New created a new Demo plugin.
 func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
-
+	log.Printf("Creating din middleware object")
 	return &Demo{
 		client: &http.Client{},
 		next:     next,
