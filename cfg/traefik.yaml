@@ -49,10 +49,8 @@ providers:
 
 
 experimental:
-  plugins:
+  localPlugins:
     rpcloopback:
-      moduleName: github.com/openrelayxyz/din-plugins/middleware
-      version: v0.1.0
+      moduleName: github.com/openrelayxyz/din-traefik-middleware
     rpcrouter:
-      moduleName: github.com/openrelayxyz/din-plugins/provider  
-      version: v0.1.0
+      moduleName: github.com/openrelayxyz/din-traefik-provider  
