@@ -1,4 +1,4 @@
-package plugindemo_test
+package din_traefik_middleware_test
 
 import (
 	"context"
