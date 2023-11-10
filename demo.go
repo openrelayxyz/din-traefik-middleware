@@ -73,7 +73,8 @@ func (a *Demo) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	var rpc rpcCall
 	if err := json.Unmarshal(body, &rpc); err != nil {
 		log.Printf("Error unmarshalling")
-		a.next.ServeHTTP(rw, req)
+		http.Error(rw, err.Error(), http.StatusOK)
+		// a.next.ServeHTTP(rw, req)
 		return
 	}
 
