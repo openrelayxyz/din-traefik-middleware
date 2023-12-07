@@ -63,7 +63,7 @@ type rpcCall struct {
 }
 
 func (a *Demo) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
-	log.Printf("Got request: '%v'", req.URL)
+	// log.Printf("Got request: '%v'", req.URL)
 	body, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		log.Printf("Error reading body: %v", err)
@@ -93,7 +93,7 @@ func (a *Demo) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	
 	req.RequestURI = req.URL.RequestURI()
 	
-	log.Printf("Path %v", req.RequestURI)
+	// log.Printf("Path %v", req.RequestURI)
 
 	a.next.ServeHTTP(rw, req)
 }
